@@ -1,0 +1,80 @@
+\documentclass[sheet]{game}
+
+%% document-wide tweaks
+\interlinepenalty10000
+\setstretch{1}
+\def\mytype{Wrapup}
+\lfoot{}\rfoot{}
+\parindent0pt
+
+%% setup for macro itemz lists
+\newcommand{\entry}[1]{%
+  \item\relax{\MAP{Char}{\MYcontact}#1:}%
+  }
+
+\begin{document}
+
+%% title box
+\begin{center}\large\bf\begin{tabular}{|c|}
+  \hline \gamename\\ \gamedate\\ \mytype\\ \hline
+\end{tabular}\end{center}
+
+
+\section*{Background}
+
+blah blah a bunch of setting background
+
+
+\section*{Plots}
+
+blah blah a bunch of detailed plot writeups
+
+\paragraph*{Groups} blah blah groups
+
+\begin{itemz}
+
+  \item \bTest{}: a test group.
+
+\end{itemz}
+
+
+\section*{Characters}
+
+%% the below generates a wrapup list for each PC, based on the
+%% \MYwrapup field.
+\begin{itemz}
+
+  \SURFACEMAP{PC}{\let\me\ME\item{\bf\MYcontact:} \MYwrapup}%
+  \SORT{Char}{alpha<}{\alphabetical}{\EVERY{PC}{}}{}
+
+\end{itemz}
+
+
+\section*{Awards}
+
+\begin{itemz}
+
+  \item The Example Award: to some player, for doing something cool.
+
+\end{itemz}
+
+
+\section*{Acknowledgements}
+
+\begin{itemz}
+
+  \item Those people who helped us, for helping us.
+
+\end{itemz}
+
+
+\section*{Quotes}
+
+\begin{itemz}
+
+  \item ``Remember that one time, with the example?'' -- Someone
+
+\end{itemz}
+
+
+\end{document}
