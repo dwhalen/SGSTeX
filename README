@@ -1,3 +1,17 @@
+SGSTeX/README
+
+SGSTeX is a fork of Ken Clary's gameTeX with a few minor modifications:
+
+1) Organization name is now a parameter in game.ls
+2) game.cls can read in an external file, game.path for the file path instead of calling the environment variable.  This should make cross-platform repository sharing easier.
+3) Some of the extra MIT-specific comments in rules-scenario.tex have been pruned.
+4) The Notes directory has been added.
+
+The original README is included below:
+
+
+
+
 GameTeX/README
 
 This is GameTeX 1.4.1a.  The copyright notice for any and all of

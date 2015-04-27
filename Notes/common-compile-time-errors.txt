@@ -1,0 +1,44 @@
+In LaTeX, when compiling fails, the last couple of lines of the console output can be used to diagnose exactly what went wrong.  Here are a couple of common problems, with easy solutions.  In general "game" should be replaced with whatever your game class name is.
+
+
+1) Failed to find game.cls (replace game.cls with your game's name)
+Output:
+	! LaTeX Error: File `game.cls' not found.
+Problem:
+	LaTeX doesn't know where to look for game.cls, which is in the LaTeX directory.  You need to tell LaTeX exactly where game.cls can be found.
+Solution:
+	There are a couple of things you can do depending on your operating system and tex IDE.
+	In certain distributions of LaTeX, you can use the --include-directory "<path to LaTeX> directory" in the pdflatex command, or ask your TeX IDE to use this command for you.
+	Copy game.cls and game_path.cls into the Production directory.
+	In Windows, Linux, and OS, you can include the path to your LaTeX directory in your TEXINPUTS environment variable.
+	You can run the pdflatex command from the LaTeX directory in the terminal.
+	
+
+2) Failed to find the path file
+Output:
+	! I can't find file `${game}/LaTeX/gametex.sty'.
+Problem:
+	The game path isn't currently defined, so LaTeX doesn't know where to look for the game's files
+Solution:
+	Define the environment variable $game using setenv as described in the README or create a new file in the same directory as game.cls named game.path with the contents: 
+	\edef\gamepath{"<path to base directory without spaces or backslashes>"}
+
+
+3) Missing Brackets
+Output:
+	! Use of \cTest doesn't match its definition.
+Problem:
+	Macros need to end with braces, even if they have no arguments.
+Solution:
+	Replace "\cTest" with "\cTest{}".
+
+
+4) Missing/Misspelled Macro
+Output:
+	! Undefined control sequence.
+	\MYitems -> \iTedt
+				{}\nTest{}
+Problem:
+	The macro before the line break (\iTedt in this example), is misspelled or has not been defined.
+Solution:
+	Correct the spelling of the macro or define it in the appropriate location.
